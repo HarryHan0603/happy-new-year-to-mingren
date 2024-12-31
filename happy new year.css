@@ -1,0 +1,188 @@
+*, *:after, *:before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+}
+
+html{
+     background: #222048;
+}
+
+.feliz{
+    width: 100%;
+    font-family: 'Pacifico', cursive;
+    font-size: 100px;
+    font-weight: 700;
+    color: #f48fb1;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    opacity: 0;
+    animation: vem_feliz 2s ease-in-out 7s forwards;
+}
+
+/* animation: vem_feliz 2s ease-in-out 7s forwards;
+    vem_feliz: 動畫名稱，指向定義的關鍵幀動畫（需在 CSS 中另行定義）。
+    2s: 動畫的持續時間為 2 秒。
+    ease-in-out: 動畫的速度曲線，開始和結束時較慢，中間較快。
+    7s: 動畫延遲時間為 7 秒，即在開始動畫之前等待 7 秒。
+    forwards: 當動畫完成時，保持動畫的最後一幀狀態（例如，透明度可能變為 1）*/
+
+.ano_novo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 200px 100px 0px 0px; 
+}
+.ano_novo > span {
+      font-family: 'Montserrat' , sans-serif;
+      font-size: 175px;
+      font-weight: 700;
+      color: #7a8fe8;
+      display: inline-block;
+      margin: 0 5px;
+}
+span.seis{
+    position: absolute;
+    right: 52%;
+    margin-right: -219px;
+    animation: vai_2024 5s ease-in-out 5s forwards;
+}
+span.sete{
+    position: absolute;
+    right: 0%;
+    margin-right: -219px;
+    animation: vem_2025 6s ease-in-out forwards;
+}
+span.sete:before{
+    content: '';
+    width: 0px;
+    height: 6px;
+    display: block;
+    border-radius:3px;
+    background: #7a8fe8;
+    transform: rotate(0deg);
+    transform-origin: left top;
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    z-index: -1;
+    animation: entrega_balao 1s ease-in-out 4s;
+}
+.balao {
+    width: 100px;
+    height: 100px;
+    display: block;
+    background: #e8d57a;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    margin-top: -165px;
+    right: 0%;
+    margin-right: -200px;
+    animation: vem_e_vai_balao 10s ease-in-out forwards;
+}
+
+.balao:before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 20px 10px;
+    border-color: transparent transparent #b19b32 transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    z-index: -1;
+}
+
+.balao:after{
+    content: '';
+    width: 4px;
+    height: 100px;
+    display: block;
+    background: #fff;
+    border-radius: 0px 0px 3px 3px;
+    position: absolute;
+    left: 50%;
+    margin-left: -2px;
+    bottom: -110px;
+}
+
+@keyframes vem_2025 {
+    0% {
+        right: 0%;
+    }
+    66.6666% {
+        right: 45%;
+    }
+    90% {
+        right: 45%;
+    }
+    100% {
+        right: 52%;
+    }
+}
+
+/* 模擬氣球或物件的移動和上升過程 */
+@keyframes vem_e_vai_balao {
+    0% {
+        right: 0%;
+    }
+    40% {
+        right: 50%;
+        margin-right: -300px;
+    }
+    50% {
+        right: 50%;
+        margin-right: -200px;
+        top: 50%;
+    }
+    100% {
+        top: -100%;
+        right: 50%;
+    }
+}
+
+/* 模擬一個物件的旋轉和變大 */
+@keyframes entrega_balao {
+    0% {
+        transform: rotate(-30deg);
+        width: 40px;
+    }
+    100% {
+        transform:rotate(-150deg);
+        width:70px;    
+    }
+}
+
+/* 垂直移動到畫面外 */
+@keyframes vai_2024 {
+    0% {
+        top: 50%;
+    }
+    100% {
+        top: -100%;
+    }
+}
+
+/* 元素從透明狀態漸漸顯現並移動向上 */
+@keyframes vem_feliz {
+    0% {
+        margin-top: 0px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: -200px;
+        opacity: 1;
+    }
+}
